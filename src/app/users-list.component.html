@@ -1,0 +1,42 @@
+<div class="container">
+ <h1>Contacts</h1>
+  <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm" id="frmUsers">
+    <div class="form-group">
+        <div class="row">
+        <label for="Name" class="col-sm-1">Name</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" [(ngModel)]="name" id="name" placeholder="Enter an Name" name="name"/><br/>
+        </div>
+            <label for="Mobile" class="col-sm-1">Mobile</label>
+        <div class="col-sm-3">
+
+            <input type="text" class="form-control" [(ngModel)]="mobile" id="mobile" placeholder="Enter an Mobile" name="mobile">
+        </div>
+            <div class="col-sm-1">
+            <button type="submit" *ngIf="isAdd" style="background-color:blue;color:white" class="btn btn-success">Add</button>
+            <button type="submit" *ngIf="!isAdd"  style="background-color:blue;color:white" class="btn btn-success">Save</button>
+                </div>
+        </div>
+    </div>
+</form>
+
+<table #datatableTeaching class="table">
+<thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>mobile</th>
+    </tr>
+    </thead>
+    <tbody id="contact-row-{{contact.Pk}}" *ngFor="let contact of contacts let i=index">
+    <tr >
+    <td>{{contact.Pk}}</td>
+        <td>{{contact.ContactName}}</td>
+        <td>{{contact.ContactPhone}}</td>
+        <td><input type="button" class="btn-danger" value="delete" (click)="deleteRow(contact.Pk,i);"/> </td>
+       <td><input type="button" class="btn-success" value="View Details" (click)="viewDetails(contact,i);"/> </td>
+   
+    </tr>
+    </tbody>
+</table>
+</div>
