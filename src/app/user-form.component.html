@@ -1,0 +1,18 @@
+<div class="container">
+ <div *ngIf="!isValid()">
+  <h1>User Form</h1>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="name">User Name</label>
+      <input type="text" class="form-control" ngModel id="name" name="name" required style="width: 25%">
+      <label for="name">Password</label>
+      <input type="password" class="form-control" ngModel id="pass" name="pass" required style="width: 25%">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+  </div>
+  <br/>
+<app-users-list [getUserID]="UserID"  *ngIf="isValid()"></app-users-list>
+</div>
+
+
